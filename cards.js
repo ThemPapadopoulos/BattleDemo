@@ -34,19 +34,19 @@ function randomCards() {
   card1.classList.add(card1class);
   cardInfo1.classList.add("cardInfo");
   cardInfo1.style.cssText +=
-    "background-image:url(images/cardInfo/" + card1class + ".png)";
+    "background-image:url(./images/cardInfo/" + card1class + ".png)";
   cardtext1.innerHTML += card1class.toUpperCase();
 
   card2.classList.add(card2class);
   cardInfo2.classList.add("cardInfo");
   cardInfo2.style.cssText +=
-    "background-image:url(images/cardInfo/" + card2class + ".png)";
+    "background-image:url(./images/cardInfo/" + card2class + ".png)";
   cardtext2.innerHTML += card2class.toUpperCase();
 
   card3.classList.add(card3class);
   cardInfo3.classList.add("cardInfo");
   cardInfo3.style.cssText +=
-    "background-image:url(images/cardInfo/" + card3class + ".png)";
+    "background-image:url(./images/cardInfo/" + card3class + ".png)";
   cardtext3.innerHTML += card3class.toUpperCase();
 }
 
