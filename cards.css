@@ -40,7 +40,7 @@
 .attack {
   background-position-x: center;
   background-position-y: 30px;
-  background-image: url(/images/cards/attack.png);
+  background-image: url(images/cards/attack.png);
   background-repeat: no-repeat;
   filter: drop-shadow(-5px 3px 3px black);
   background-color: aliceblue;
@@ -49,7 +49,7 @@
 .block {
   background-position-x: center;
   background-position-y: 30px;
-  background-image: url(/images/cards/block.png);
+  background-image: url(images/cards/block.png);
   background-repeat: no-repeat;
   filter: drop-shadow(-5px 3px 3px black);
   background-color: aliceblue;
@@ -58,7 +58,7 @@
 .slash {
   background-position-x: center;
   background-position-y: 30px;
-  background-image: url(/images/cards/slash.png);
+  background-image: url(images/cards/slash.png);
   background-repeat: no-repeat;
   filter: drop-shadow(-5px 3px 3px black);
   background-color: aliceblue;
@@ -67,7 +67,7 @@
 .run {
   background-position-x: center;
   background-position-y: 30px;
-  background-image: url(/images/cards/run.png);
+  background-image: url(images/cards/run.png);
   background-repeat: no-repeat;
   filter: drop-shadow(-5px 3px 3px black);
   background-color: aliceblue;
@@ -76,14 +76,14 @@
 .steal {
   background-position-x: center;
   background-position-y: 30px;
-  background-image: url(/images/cards/steal.png);
+  background-image: url(images/cards/steal.png);
   background-repeat: no-repeat;
   filter: drop-shadow(-5px 3px 3px black);
   background-color: aliceblue;
   background-size: 64px 64px;
 }
 .fortify {
-  background-image: url(/images/cards/fortify.png);
+  background-image: url(images/cards/fortify.png);
   background-position-y: 30px;
   background-repeat: no-repeat;
   background-position-x: center;
@@ -97,11 +97,11 @@
 .slash:hover,
 .run:hover,
 .attack:hover {
-  background-image: url(/images/cards/1.png);
+  background-image: url(images/cards/1.png);
 }
 .steal:hover,
 .fortify:hover {
-  background-image: url(/images/cards/2.png);
+  background-image: url(images/cards/2.png);
 }
 
 /*? card Info section position */

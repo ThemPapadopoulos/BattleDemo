@@ -15,7 +15,7 @@ var cardInfo3 = document.querySelector("#cardInfo3");
 //! enemy creator
 createEnemy("bandit", "100");
 function createEnemy(enemyType, health) {
-  enemy.style.background = "url(./images/enemy/" + enemyType + ".gif)";
+  enemy.style.background = "url(images/enemy/" + enemyType + ".gif)";
   enemy.setAttribute("id", enemyType);
   enemy.style.cssText +=
     "background-size: 110px 110px;width: 110px;height: 120px;background-repeat: no-repeat;background-position: center;";
@@ -32,7 +32,7 @@ function battleCreator(battleId, introText, enemyText, enemyType) {
   var randomNum = Math.floor(Math.random() * 8 + 1);
   //main.style.display='none';
   main.setAttribute("id", battleId);
-  main.style.background = "url(./images/backgrounds/" + randomNum + ".gif)";
+  main.style.background = "url(images/backgrounds/" + randomNum + ".gif)";
   enemyTalk.innerHTML = enemyText;
   main.style.cssText +=
     "height: 500px;top:30px;width: 700px;background-size: 750px 500px;background-repeat: no-repeat;align-self: center;position: absolute;";
