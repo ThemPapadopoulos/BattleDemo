@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/battle.css" />
+    <link rel="stylesheet" href="/characters.css" />
+    <link rel="stylesheet" href="/cards.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="main">
+      <div id="winloosescreen"></div>
+      <div id="header">MOVES <br />LEFT: <span id="headerSpan"></span> / 2</div>
+
+      <div id='hero' class="hero">
+        <div class="heroPortrait"></div>
+        <div class="heroTalk"></div>
+        <progress id="pHealth" value="100" max="100"></progress>
+      </div>
+      <div id='enemy' class="enemy">
+        <div class="enemyTalk"></div>
+        <progress id="eHealth" value="100" max="100"></progress>
+      </div>
+      <div class="tile"></div>
+      <button id="turnbtn">END TURN</button>
+      <div id="cards">
+        <div class="card" id="card1">
+          <img id="card1img" /> 
+          
+        </div>
+        <img id="cardInfo1" />
+        
+        <div class="card" id="card2">
+        <img id="card2img" /> 
+        
+        </div>
+        <img id="cardInfo2" />
+        <div class="card" id="card3">
+          <img id="card3img" /> 
+          
+        </div>
+        <img id="cardInfo3" />
+      </div>
+      <section class="info">
+        CHOOSE A CARD
+        <br />YOU HAVE 2 MOVE <br />POINTS PER ROUND<br />
+        <br />THEN END YOUR TURN
+      </section>
+    </div>
+    <script src="/battle.js"></script>
+    <script src="/cards.js"></script>
+    <script src="/mechanics.js"></script>
+  </body>
+</html>

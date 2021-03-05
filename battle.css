@@ -1,0 +1,112 @@
+html {
+  box-sizing: border-box;
+}
+body {
+  font-family: "MedievalSharp", cursive;
+  height: 750px;
+  width: 700px;
+  margin: 0;
+}
+#winloosescreen{
+  position: absolute;
+  text-align: center;
+  color: aliceblue;
+  top: 100px;
+  left: 200px;
+  width: 300px;
+  height: 100px;
+}
+.main {
+  display: grid;
+  height: 500px;
+  width: 700px;
+  top: 20px;
+  left: 5px;
+  background-size: 700px 500px;
+  background-repeat: no-repeat;
+  align-self: center;
+  position: absolute;
+}
+
+#header {
+  font-family: initial;
+  font-size: 1.5rem;
+  position: absolute;
+  top: 505px;
+  left: 550px;
+  text-align: center;
+  background-color: black;
+  color: aliceblue;
+  border-radius: 5%;
+  width: 125px;
+  height: 60px;
+}
+/* make a hero portrait for quotes */
+.heroPortrait {
+  z-index: 1;   /* bring portrait on top */
+  font-size: large;
+  display: none;
+  justify-self: center;
+  align-self: center;
+  text-align: center;
+  background-image: url(/images/cards/smallsizeportrait.jpg);
+  background-repeat: no-repeat;
+  width: 70px;
+  height: 80px;
+  position: absolute;
+  background-size: 50px 60px;
+  top: -90px;
+  left: -35px;
+  color: aliceblue;
+}
+.heroTalk {
+  font-size: large;
+  display: none;
+  justify-self: center;
+  align-self: center;
+  text-align: center;
+  background-image: url(/images/cards/comment.png);
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  background-size: 100px 100px;
+  top: -110px;
+  filter: drop-shadow(-5px 3px 3px white);
+  color: aliceblue;
+}
+.enemyTalk {
+  font-size: large;
+  display: none;
+  justify-self: center;
+  align-self: center;
+  text-align: center;
+  background-image: url(/images/cards/comment.png);
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  background-size: 100px 100px;
+  top: -110px;
+  filter: drop-shadow(-5px 3px 3px white);
+  color: aliceblue;
+}
+.info {
+  font-family: initial;
+  position: absolute;
+  display: block;
+  top: 550px;
+}
+#turnbtn {
+  width: 125px;
+  height: 60px;
+  margin-left: 550px;
+  top: 570px;
+  position: absolute;
+  display: block;
+  transition: 0.5s;
+  filter: drop-shadow(-5px 3px 3px black);
+}
+#turnbtn:hover {
+  transform: scale(1.1);
+  background-color: goldenrod;
+  color: beige;
+}

@@ -1,0 +1,136 @@
+/*! ----------global card values --------------- */
+#cards {
+  top: 500px;
+  left: 160px;
+  margin-left: 7px;
+  display: flex;
+  flex-wrap: wrap;
+  position: absolute;
+}
+.card {
+  text-align: center;
+  margin: 5px;
+  width: 100px;
+  height: 150px;
+  background-color: rgba(114, 114, 114, 0.8);
+  border: 5px double burlywood;
+  border-radius: 10%;
+  transition: 0.5s;
+  filter: drop-shadow(-5px 3px 3px black);
+}
+.card:hover {
+  transform: translate(120px, 50%);
+  background-color: cadetblue;
+}
+
+/* give rotation to cards*/
+#card1 {
+  transform: rotate(-15deg);
+  top: 610px;
+}
+#card2 {
+  transform: translate(0, -20px);
+}
+#card3 {
+  transform: rotate(15deg);
+  top: 610px;
+}
+
+/*!----------- DIFFERENT CARD TYPE/CLASSES -----------*/
+.attack {
+  background-position-x: center;
+  background-position-y: 30px;
+  background-image: url(/images/cards/attack.png);
+  background-repeat: no-repeat;
+  filter: drop-shadow(-5px 3px 3px black);
+  background-color: aliceblue;
+  background-size: 64px 64px;
+}
+.block {
+  background-position-x: center;
+  background-position-y: 30px;
+  background-image: url(/images/cards/block.png);
+  background-repeat: no-repeat;
+  filter: drop-shadow(-5px 3px 3px black);
+  background-color: aliceblue;
+  background-size: 64px 64px;
+}
+.slash {
+  background-position-x: center;
+  background-position-y: 30px;
+  background-image: url(/images/cards/slash.png);
+  background-repeat: no-repeat;
+  filter: drop-shadow(-5px 3px 3px black);
+  background-color: aliceblue;
+  background-size: 64px 64px;
+}
+.run {
+  background-position-x: center;
+  background-position-y: 30px;
+  background-image: url(/images/cards/run.png);
+  background-repeat: no-repeat;
+  filter: drop-shadow(-5px 3px 3px black);
+  background-color: aliceblue;
+  background-size: 64px 64px;
+}
+.steal {
+  background-position-x: center;
+  background-position-y: 30px;
+  background-image: url(/images/cards/steal.png);
+  background-repeat: no-repeat;
+  filter: drop-shadow(-5px 3px 3px black);
+  background-color: aliceblue;
+  background-size: 64px 64px;
+}
+.fortify {
+  background-image: url(/images/cards/fortify.png);
+  background-position-y: 30px;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  filter: drop-shadow(-5px 3px 3px black);
+  background-color: aliceblue;
+  background-size: 64px 64px;
+}
+
+/*! ----------on hover shows the cost of card --------------- */
+.block:hover,
+.slash:hover,
+.run:hover,
+.attack:hover {
+  background-image: url(/images/cards/1.png);
+}
+.steal:hover,
+.fortify:hover {
+  background-image: url(/images/cards/2.png);
+}
+
+/*? card Info section position */
+#cardInfo1 {
+  transform: rotate(-15deg);
+  top: 110px;
+  left: 23px;
+  height: 50px;
+  width: 100px;
+  background-size: 100px 50px;
+  position: absolute;
+  transition: 0.5s;
+}
+#cardInfo2 {
+  top: 90px;
+  left: 130px;
+  height: 50px;
+  width: 100px;
+  background-size: 100px 50px;
+  position: absolute;
+  transition: 0.5s;
+}
+#cardInfo3 {
+  transform: rotate(15deg);
+  top: 110px;
+  left: 237px;
+  height: 50px;
+  width: 100px;
+  background-size: 100px 50px;
+  position: absolute;
+  transition: 0.5s;
+}

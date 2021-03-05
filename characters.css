@@ -1,0 +1,154 @@
+/*!battle character*/
+@keyframes example {
+  from {background-position-x: white;}
+  to {background-color: goldenrod;}
+}
+
+.hero {
+  display: block;
+  background: url(/images/hero/idle.gif);
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 0;
+  margin: 0;
+  top: 330px;
+  left: 100px;
+  width: 110px;
+  height: 110px;
+  background-size: 200px 115px;
+  border-top: 0px;
+  border-left: 0px;
+  border-right: 0px;
+  border-bottom: 0px;
+  color: white;
+  font-size: x-large;
+  text-align: end;
+  font-weight: 900;
+  position: absolute;
+  filter: drop-shadow(-5px 3px 3px black);
+}
+
+/*!toggle classes*/
+.heroSteal {
+  background: url(/images/hero/run.gif);
+  background-size: 200px 115px;
+  background-repeat: no-repeat;
+  background-position: center;
+  animation-duration: 2s;
+  transform: rotate(2deg) translateX(340px);
+  transition: 1s;
+  transition-timing-function: ease-out;
+}
+.heroAttack {
+  background: url(/images/hero/attack.gif);
+  background-repeat: no-repeat;
+  background-size: 200px 115px;
+  background-position: center;
+  animation-duration: 3s;
+  transform: rotate(2deg) translateX(340px);
+  transition: 2s;
+}
+.heroRun {
+  background: url(/images/hero/run.gif);
+  background-repeat: no-repeat;
+  background-size: 200px 115px;
+  background-position: center;
+  animation-duration: 1s;
+  transform: scaleX(-1);
+  transition: 0.4s;
+}
+.heroSlash {
+  background: url(/images/hero/attack.gif);
+  background-repeat: no-repeat;
+  background-size: 200px 115px;
+  background-position: center;
+  animation-duration: 1s;
+  transform: translateX(340px);
+  transition: 0.5s;
+  transition-timing-function: ease-in-out;
+}
+.heroBlock {
+  background: url(/images/hero/block.gif);
+  background-repeat: no-repeat;
+  background-size: 200px 115px;
+  background-position: center;
+  animation-duration: 3s;
+  transform: translateX(-20px, -5px) ;
+  transition: 1s;
+  transition-timing-function: ease-in-out;
+}
+
+.heroFortify {
+  background: url(/images/hero/block.gif);
+  background-repeat: no-repeat;
+  background-size: 200px 115px;
+  background-position: center;
+  animation-duration: 3s;
+  transform: translateX(-20px) scale(1.2)  ;
+  transition: 2s;
+  transition-timing-function: ease-in-out;
+  background-color: white;
+  border-radius: 50%;
+  animation-name: example;
+}
+
+
+
+/*!battle enemy*/
+#bandit {
+  top: 330px;
+  left: 500px;
+  margin: 0;
+  padding: 0;
+  display: block;
+  color: white;
+  font-size: x-large;
+  font-weight: 900;
+  position: absolute;
+  filter: drop-shadow(5px 3px 3px black);
+}
+
+.enemyDeath {
+  border-radius: 50%;
+  margin: 0;
+  padding: 0;
+  display: block;
+  background: url(../images/enemy/banditdeath.gif);
+  background-size: 100px 100px;
+  width: 100px;
+  height: 100px;
+  border-top: 0px;
+  border-left: 0px;
+  border-right: 0px;
+  border-bottom: 0px;
+  color: white;
+  font-size: x-large;
+  font-weight: 900;
+  position: absolute;
+}
+
+#playerHit,
+#enemyHit {
+  background-color: chartreuse;
+}
+
+#playerHealth {
+  background-color: white;
+}
+#enemyHealth {
+  position: absolute;
+  top: 110px;
+  left: 45px;
+  background-color: black;
+}
+
+/*! HEALTH BAR */
+#pHealth, #eHealth {
+  background-color: black;
+  top: -30px;
+  position: relative;
+  filter: drop-shadow(1px 1px 2px white);
+  height: 8px;
+  width: 100px;
+  text-align: center;
+}
