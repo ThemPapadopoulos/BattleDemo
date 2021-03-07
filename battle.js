@@ -189,7 +189,7 @@ function enemyDeath() {
   enemy.classList.toggle("heroIdle");
   makeUnclickable();
   enemy.style.cssText =
-    "background-repeat: no-repeat;background-size: 200px 115px;background-position: center;top: 330px;left: 500px;display: block;color: white;font-size: x-large;font-weight: 900;position: absolute;filter: drop-shadow(5px 3px 3px black);background: url(images/enemy/banditDeath2.gif);display: block;width: 100;height: 120px;background-repeat: no-repeat;background-size: 120px 115px;background-position: center;";
+    "background-repeat: no-repeat;background-size: 200px 115px;background-position: center;top: 330px;left: 500px;display: block;color: white;font-size: x-large;font-weight: 900;position: absolute;filter: drop-shadow(5px 3px 3px black);background: url('images/enemy/banditDeath2.gif');display: block;width: 100;height: 120px;background-repeat: no-repeat;background-size: 120px 115px;background-position: center;";
   //! gameover message appear
   messages.style.display = "initial";
   messages.innerHTML = "<h1>Alas! You live another day.</h1>\n<h2>You gained "+ goldValue +" gold!</h2>";
