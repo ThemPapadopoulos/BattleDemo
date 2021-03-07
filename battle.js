@@ -1,4 +1,5 @@
 //! Global selectors
+var fortifyCounter = 0;
 var main = document.querySelector(".main");
 var enemy = document.querySelector(".enemy");
 var endTurnBtn = document.querySelector("#turnbtn");
@@ -11,22 +12,17 @@ var eHealth = document.querySelector("#eHealth");
 var cardInfo1 = document.querySelector("#cardInfo1");
 var cardInfo2 = document.querySelector("#cardInfo2");
 var cardInfo3 = document.querySelector("#cardInfo3");
-
 //! enemy creator
 createEnemy("bandit", "100");
 function createEnemy(enemyType, health) {
-  enemy.style.background = "url(images/enemy/" + enemyType + ".gif)";
   enemy.setAttribute("id", enemyType);
-  enemy.style.cssText +=
-    "background-size: 110px 110px;width: 110px;height: 120px;background-repeat: no-repeat;background-position: center;";
-  eHealth.setAttribute('max',health);
-  eHealth.setAttribute('value',health);
+  enemy.classList.add("enIdle");
+  eHealth.setAttribute("max", health);
+  eHealth.setAttribute("value", health);
 }
-
 //! battlefield randomizer
 battleCreator(1, "welcome to your first battle", '"You\'re mine!"', bandit);
 heroTalk.innerHTML = '"attack!"';
-
 //!random battle background generator
 function battleCreator(battleId, introText, enemyText, enemyType) {
   var randomNum = Math.floor(Math.random() * 8 + 1);
@@ -36,29 +32,60 @@ function battleCreator(battleId, introText, enemyText, enemyType) {
   enemyTalk.innerHTML = enemyText;
   main.style.cssText +=
     "height: 500px;top:30px;width: 700px;background-size: 750px 500px;background-repeat: no-repeat;align-self: center;position: absolute;";
+  hero.classList.toggle("heroIdle");
 }
 
-//! what happens when endTurn is pressed
+//! what happens when END TURN is pressed
 endTurnBtn.addEventListener("click", function () {
-  movesLeft.innerText = 2; //reset moves left counter
-  messages.innerHTML = ""; //reset 'no moves left' message
-  card1.classList.remove("attack", "block", "fortify", "slash", "run", "steal");
-  card2.classList.remove("attack", "block", "fortify", "slash", "run", "steal");
-  card3.classList.remove("attack", "block", "fortify", "slash", "run", "steal");
-  card1.innerText = "";
-  card2.innerText = "";
-  card3.innerText = "";
-  card1.style.pointerEvents = "initial";
-  card2.style.pointerEvents = "initial";
-  card3.style.pointerEvents = "initial";
-  attack = "attack";
-  randomEnemyQuote();
-  randomCards();
+  enemyAttack();
+  setTimeout(function () {
+    movesLeft.innerText = 2; //reset moves left counter
+    //!dont remove gameover message on endturn
+    if (messages.innerHTML != "<h1>All hope is Lost... </h1>") {
+      messages.innerHTML = ""; //reset 'no moves left' message
+    }
+    playerStatus.classList.remove('defense');
+            playerStatus.innerHTML='';
+    //! empty classes from cards
+    card1.classList.remove(
+      "attack",
+      "block",
+      "fortify",
+      "slash",
+      "run",
+      "steal"
+    );
+    card2.classList.remove(
+      "attack",
+      "block",
+      "fortify",
+      "slash",
+      "run",
+      "steal"
+    );
+    card3.classList.remove(
+      "attack",
+      "block",
+      "fortify",
+      "slash",
+      "run",
+      "steal"
+    );
+    card1.innerText = "";
+    card2.innerText = "";
+    card3.innerText = "";
+    attack = "attack";
+    randomEnemyQuote();
+    //! re-randomise cards.
+    randomCards();
+    if (playerStatus.classList.contains("blocked")) {
+      playerStatus.classList.toggle("blocked");
+    }
+    playerStatus.innerHTML = "";
+  }, 1500);
 });
 
-
 //! RANDOM QUOTE GENERATOR ON ATTACK!
-
 function randomHeroQuote() {
   heroQuotes = [
     '"En guard!"',
@@ -92,10 +119,94 @@ function randomEnemyQuote() {
   q = enemyQuotes[randomNum];
   enemyTalk.innerHTML = q;
   enemyTalk.style.display = "initial";
-
   // quote removal after 1,5 seconds
   setTimeout(function () {
     enemyTalk.style.display = "none";
   }, 1500);
 }
-//!  on card-click --- movement
+
+//!!!! ENEMY ATTACK FUNCTION !!!!
+function enemyAttack() {
+   //!-------check if fortified------
+  if (playerStatus.classList.contains("fortified") && fortifyCounter > 0) {
+    fortifyCounter -= 1;
+    enemy.classList.remove("enIdle");
+    enemy.classList.toggle("enAttack");
+    messages.style.display = "initial";
+    messages.innerHTML = "<h1>You completely avoid damage</h1>";
+    makeClickable();
+    setTimeout(function () {
+      enemy.classList.toggle("enAttack");
+    }, 1000);
+  } else {
+    makeClickable();
+    if (playerStatus.classList.contains("fortified")) {
+      //!remove fortified on fortifyCounter = 0
+      fortifyCounter = 0;
+      playerStatus.classList.toggle("fortified");
+    }
+    if (pHealth.value > 0) {
+      enemy.classList.remove("enIdle");
+      enemy.classList.toggle("enAttack");
+      setTimeout(function () {
+        if (pHealth.value > 25 && playerStatus.innerHTML != "50" && playerStatus.innerHTML != "20" ) {
+          pHealth.value -= 25; // enemy health reduction
+          hero.classList.toggle("heroBeingHit");
+          setTimeout(function () {
+            hero.classList.toggle("heroBeingHit");
+          }, 1200);
+          //! when bock class is on -50% damage.
+        } else if (pHealth.value > 25 && playerStatus.innerHTML == "50") {
+          pHealth.value -= 12.5;
+        } //! when defence class is on -20% damage.
+        else if (pHealth.value > 15 && playerStatus.innerHTML == "20") {
+          pHealth.value -= 20;
+        }else {
+          //! ------- player death condition -------- 
+          pHealth.value -= 25; // player health reduction
+          playerDeath();
+        }
+      }, 1500);
+      setTimeout(function () {
+        enemy.classList.toggle("enAttack");
+      }, 1500);
+    }
+  }
+}
+function playerDeath() {
+  makeUnclickable();
+  hero.classList.toggle("heroIdle");
+  hero.style.cssText =
+    "z-index: 1;position: absolute;background-repeat: no-repeat;background-position: center;background: url(images/hero/death2.gif);background-repeat: no-repeat;background-position: center;padding: 0;margin: 0;top: 330px;left: 100px;width: 150px;height: 110px;background-size: 200px 115px;filter: drop-shadow(-5px 3px 3px black);animation-duration: 3s;transition: 1s;transition-timing-function: ease-in-out;";
+  //! gameover message appear
+  messages.style.display = "initial";
+  messages.innerHTML = "<h1>All hope is Lost... </h1>";
+  main.style.cssText = "";
+  //! add gameover screen
+  main.classList.add("gameover");
+}
+function enemyDeath() {
+  enemy.classList.toggle("heroIdle");
+  makeUnclickable();
+  enemy.style.cssText =
+    "background-repeat: no-repeat;background-size: 200px 115px;background-position: center;top: 330px;left: 500px;display: block;color: white;font-size: x-large;font-weight: 900;position: absolute;filter: drop-shadow(5px 3px 3px black);background: url(images/enemy/banditDeath2.gif);display: block;width: 100;height: 120px;background-repeat: no-repeat;background-size: 120px 115px;background-position: center;";
+  //! gameover message appear
+  messages.style.display = "initial";
+  messages.innerHTML = "<h1>Alas! You live another day.</h1>\n<h2>You gained "+ goldValue +" gold!</h2>";
+  main.style.cssText = "";
+  //! add gameover screen
+  main.classList.add("gameover");
+}
+//! function to togle clickable cards & button
+function makeUnclickable() {
+  endTurnBtn.style.pointerEvents = "none";
+  card1.style.pointerEvents = "none";
+  card2.style.pointerEvents = "none";
+  card3.style.pointerEvents = "none";
+}
+function makeClickable() {
+  endTurnBtn.style.pointerEvents = "initial";
+  card1.style.pointerEvents = "initial";
+  card2.style.pointerEvents = "initial";
+  card3.style.pointerEvents = "initial";
+}

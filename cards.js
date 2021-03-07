@@ -49,5 +49,3 @@ function randomCards() {
     "background-image:url(./images/cardInfo/" + card3class + ".png)";
   cardtext3.innerHTML += card3class.toUpperCase();
 }
-
-

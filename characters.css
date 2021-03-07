@@ -1,10 +1,14 @@
 /*!battle character*/
 @keyframes example {
-  from {background-position-x: white;}
-  to {background-color: goldenrod;}
+  from {
+    background-position-x: white;
+  }
+  to {
+    background-color: goldenrod;
+  }
 }
 
-.hero {
+.heroIdle {
   display: block;
   background: url(images/hero/idle.gif);
   background-repeat: no-repeat;
@@ -28,7 +32,7 @@
   filter: drop-shadow(-5px 3px 3px black);
 }
 
-/*!toggle classes*/
+/*!toggle hero classes*/
 .heroSteal {
   background: url(images/hero/run.gif);
   background-size: 200px 115px;
@@ -73,18 +77,17 @@
   background-size: 200px 115px;
   background-position: center;
   animation-duration: 3s;
-  transform: translateX(-20px, -5px) ;
+  transform: translateX(-20px, -5px);
   transition: 1s;
   transition-timing-function: ease-in-out;
 }
-
 .heroFortify {
   background: url(images/hero/block.gif);
   background-repeat: no-repeat;
   background-size: 200px 115px;
   background-position: center;
   animation-duration: 3s;
-  transform: translateX(-20px) scale(1.2)  ;
+  transform: translateX(-20px) scale(1.2);
   transition: 2s;
   transition-timing-function: ease-in-out;
   background-color: white;
@@ -92,10 +95,34 @@
   animation-name: example;
 }
 
+.heroDeath {
+  z-index: 1;
+  position: absolute;
+  background: url(images/hero/death.gif);
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 0;
+  margin: 0;
+  top: 330px;
+  left: 100px;
+  width: 110px;
+  height: 110px;
+  background-size: 200px 115px;
+  filter: drop-shadow(-5px 3px 3px black);
+}
 
+.heroBeingHit {
+  animation-duration: 0, 5s;
+  transform: translateX(-10px);
+  transition: 1s;
+  transition-timing-function: ease-out;
+}
 
 /*!battle enemy*/
-#bandit {
+.enemy {
+  background-repeat: no-repeat;
+  background-size: 200px 115px;
+  background-position: center;
   top: 330px;
   left: 500px;
   margin: 0;
@@ -106,6 +133,29 @@
   font-weight: 900;
   position: absolute;
   filter: drop-shadow(5px 3px 3px black);
+  background: url(images/enemy/bandit.gif);
+  display: block;
+  width: 100;
+  height: 120px;
+  background-repeat: no-repeat;
+  background-size: 120px 115px;
+  background-position: center;
+}
+
+.enAttack {
+  background: url(images/enemy/attackbandit.gif);
+  display: block;
+  top: 330px;
+  left: 500px;
+  width: 100;
+  height: 120px;
+  background-repeat: no-repeat;
+  background-size: 120px 115px;
+  background-position: center;
+  animation-duration: 1s;
+  transform: translateX(-340px);
+  transition: 1s;
+  transition-timing-function: ease-in-out;
 }
 
 #playerHit,
@@ -123,8 +173,9 @@
   background-color: black;
 }
 
-/*! HEALTH BAR */
-#pHealth, #eHealth {
+/*! HEALTH BAR Appearance*/
+#pHealth,
+#eHealth {
   background-color: black;
   top: -30px;
   position: relative;

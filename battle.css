@@ -6,8 +6,9 @@ body {
   height: 750px;
   width: 700px;
   margin: 0;
+ 
 }
-#winloosescreen{
+#winloosescreen {
   position: absolute;
   text-align: center;
   color: aliceblue;
@@ -26,6 +27,20 @@ body {
   background-repeat: no-repeat;
   align-self: center;
   position: absolute;
+  background-color: black;
+}
+
+.gameover {
+  display: grid;
+  height: 500px;
+  width: 700px;
+  top: 20px;
+  left: 5px;
+  align-self: center;
+  position: absolute;
+  animation-duration: 10s;
+  transition: 10s;
+  animation-name: blackfall;
 }
 
 #header {
@@ -43,7 +58,7 @@ body {
 }
 /* make a hero portrait for quotes */
 .heroPortrait {
-  z-index: 1;   /* bring portrait on top */
+  z-index: 1; /* bring portrait on top */
   font-size: large;
   display: none;
   justify-self: center;
@@ -89,6 +104,30 @@ body {
   filter: drop-shadow(-5px 3px 3px white);
   color: aliceblue;
 }
+
+#gold {
+  position: absolute;
+  display: flex;
+  color: aliceblue;
+  background-color: black;
+  width: 130px;
+  top: 470px;
+  left: 0px;
+  padding: 0;
+  margin: 0;
+}
+
+#goldValue {
+  font-family: "MedievalSharp", cursive;
+
+  width: 40px;
+  height: 30px;
+  font-size: 1.3rem;
+  background-color: black;
+  color: goldenrod;
+  margin-left: 15px;
+  text-align: center;
+}
 .info {
   font-family: initial;
   position: absolute;
@@ -109,4 +148,65 @@ body {
   transform: scale(1.1);
   background-color: goldenrod;
   color: beige;
+}
+
+/*!---------------- add player status class --------------------*/
+
+#playerStatus {
+  padding-top: 5px;
+  text-align: center;
+  color: white;
+  z-index: 1;
+  position: absolute;
+  top: -15px;
+  left: 125px;
+  width: 32px;
+  height: 32px;
+  background-size: 32px 32px;
+  background-repeat: no-repeat;
+  font-family: "MedievalSharp", bold;
+  
+}
+.blocked {
+  background-image: url(images/shield.png);
+  animation-duration: 3s;
+  transition: 1s;
+  font-size: 1.2rem;
+  animation-name: grow;
+}
+.fortified{
+  background-image: url(images/shield.png);
+  animation-duration: 3s;
+  transition: 1s;
+  font-size: 1.4rem;
+  color: black;
+  animation-name: grow;
+  filter: drop-shadow(-4px 2px 2px red);
+}
+
+.defense{
+  background-image: url(images/shield.png);
+  animation-duration: 3s;
+  transition: 1s;
+  font-size: 1rem;
+  animation-name: grow;
+  filter: drop-shadow(-4px 2px 2px darkgreen);
+}
+
+/*! -------- some variables for background and win/lose transform--------- */
+@keyframes grow {
+  from {
+    background-size: 16px 16px;
+  }
+  to {
+    background-size: 32px 32px;
+  }
+}
+@keyframes blackfall {
+  from {
+    background-size: initial;
+  }
+  to {
+    background-color: black;
+  }
 }
